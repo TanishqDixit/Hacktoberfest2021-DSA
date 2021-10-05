@@ -1,0 +1,37 @@
+#include <iostream> 
+using namespace std; 
+  
+#define n 3 
+  
+bool checkMarkov(double m[][n]) 
+{ 
+    // outer loop to access rows 
+    // and inner to access columns 
+    for (int i = 0; i < n; i++) { 
+  
+        // Find sum of current row 
+        double sum = 0; 
+        for (int j = 0; j < n; j++) 
+            sum = sum + m[i][j]; 
+  
+        if (sum != 1) 
+        return false; 
+    } 
+  
+    return true; 
+} 
+  
+// Driver Code 
+int main()  
+{ 
+    // Matrix to check 
+    double m[3][3] = { { 0, 1, 0 }, 
+                    { 0.8, 0.2, 0 }, 
+                    { 0.3, 0.3, 0.4 } }; 
+  
+    // calls the function check() 
+    if (checkMarkov(m)) 
+        cout << "Yes!"; 
+    else
+        cout << "No."; 
+}
